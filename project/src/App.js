@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import TodoList from './components/TodoList'
 
 import './App.css';
 
@@ -18,10 +19,10 @@ const items = [
 
 function App() {
 
-  const [todoList, setTodoList] = useState(items);
+  const [todosList, setTodosList] = useState(items);
 
   const toggleItem = (clickedId) => {
-    const newTodos = todoList.map(todo => {
+    const newTodos = todosList.map(todo => {
       if (todo.id === clickedId) {
         return {
           ...todo,
@@ -32,8 +33,8 @@ function App() {
       }
     })
     
-    setTodoList({
-      todoList: newTodos
+    setTodosList({
+      todosList: newTodos
     })
   }
 
@@ -43,22 +44,32 @@ function App() {
       id: Date.now(),
       purchased: false
     };
-    setTodoList({
-      todoList: [...todoList, newTodo]
+    setTodosList({
+      todosList: [...todosList, newTodo]
     });
   };
 
   const itemDelete = () => {
-    const resetList = todoList.filter(items => !items.completed)
+    const resetList = todosList.filter(items => !items.completed)
 
-    setTodoList({
-      todoList: resetList
+    setTodosList({
+      todosList: resetList
     })
   }
 
   return (
     <div className="App">
-    
+      <div className="header">
+        <h1>Todo List</h1>
+        {/* <TodoForm 
+          addNewTodo={addNewTodo} 
+          itemDelete={itemDelete}
+        /> */}
+      </div>
+      <TodoList 
+        items={todosList} 
+        toggleItem={toggleItem}
+      />
     </div>
   );
 }
