@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import TodoList from './components/TodoList'
+import TodoForm from './components/TodoForm'
 
 import './App.css';
 
@@ -38,11 +39,11 @@ function App() {
     })
   }
 
-  const addNewTodo = itemText => {
+  const addNewTodo = todo => {
     const newTodo = {
-      task: itemText,
+      task: todo.task,
       id: Date.now(),
-      purchased: false
+      completed: todo.completed
     };
     setTodosList({
       todosList: [...todosList, newTodo]
@@ -61,10 +62,10 @@ function App() {
     <div className="App">
       <div className="header">
         <h1>Todo List</h1>
-        {/* <TodoForm 
+        <TodoForm 
           addNewTodo={addNewTodo} 
           itemDelete={itemDelete}
-        /> */}
+        />
       </div>
       <TodoList 
         items={todosList} 
