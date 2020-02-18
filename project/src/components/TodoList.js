@@ -39,7 +39,7 @@ const TodoList = () => {
 
             <button onClick={handleSubmit}>Add Item To Do</button>
             <button onClick={handleDelete}>Clear Completed Items</button>
-            <Todo state={state} dispatch={dispatch} handleToggle = {handleToggle} />
+            <Todo state={state} handleToggle = {handleToggle} />
 
         </div>
     )

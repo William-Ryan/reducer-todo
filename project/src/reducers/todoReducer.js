@@ -11,7 +11,7 @@ export const todoReducer = (state, action) => {
             return [{item:action.payload, completed: false, id: Date.now()}, ...state]
         };
         case 'TOGGLE_DONE': {
-            return state.map(item => item.id ===Number(action.payload) ? {...item, completed: !item.completed}: item);
+            return state.map(item => item.id === Number(action.payload) ? {...item, completed: !item.completed}: item);
         };
         case 'CLEAR_DONE': {
             return state.filter(item => !item.completed);

@@ -7,7 +7,7 @@ const Todo = ({ state, handleToggle }) => {
             {state.map(todo =>{
                 return <p className={`$todo.completed ? 'all done' : ''}`}
                 id={todo.id} onClick={handleToggle}> 
-                Item To Do: {todo.item} Completed: {String(todo.completed)}</p>
+                To Do: {todo.item} Completed: {String(todo.completed)}</p>
             })}
         </div>
     )
