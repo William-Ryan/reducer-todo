@@ -35,10 +35,11 @@ const TodoList = () => {
                 onChange={handleChange}
                 value={newTodoItem}
                 />
+                <button onClick={handleSubmit}>Add Item To Do</button>
+                <button onClick={handleDelete}>Clear Completed Items</button>
             </form>
 
-            <button onClick={handleSubmit}>Add Item To Do</button>
-            <button onClick={handleDelete}>Clear Completed Items</button>
+            
             <Todo state={state} handleToggle = {handleToggle} />
 
         </div>
